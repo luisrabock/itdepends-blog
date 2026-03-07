@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#1a1a1a"/>
+  <rect x="0.5" y="0.5" width="31" height="31" fill="none" stroke="#999988" stroke-width="1"/>
+  <text
+    x="16"
+    y="16"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="'Courier New', Courier, monospace"
+    font-size="17"
+    font-weight="bold"
+    fill="#d4d0c0"
+  >{}</text>
+</svg>
