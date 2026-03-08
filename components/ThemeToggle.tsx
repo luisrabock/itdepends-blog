@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useBlog } from "@/context/BlogContext";
 
 // Pixel-art sun — 2000s style
@@ -58,16 +59,21 @@ function MoonIcon() {
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useBlog();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <button
       onClick={toggleTheme}
       className="retro-link cursor-pointer"
       aria-label="toggle theme"
-      title={theme === "light" ? "dark mode" : "light mode"}
+      title={mounted ? (theme === "light" ? "dark mode" : "light mode") : ""}
       style={{ background: "none", border: "none", padding: 0, lineHeight: 1 }}
     >
-      {theme === "light" ? <MoonIcon /> : <SunIcon />}
+      {mounted ? (theme === "light" ? <MoonIcon /> : <SunIcon />) : (
+        <span style={{ display: "inline-block", width: 14, height: 14 }} />
+      )}
     </button>
   );
 }

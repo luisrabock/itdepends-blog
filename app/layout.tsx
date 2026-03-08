@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Press_Start_2P, VT323 } from "next/font/google";
 import { BlogProvider } from "@/context/BlogContext";
 import Link from "next/link";
 import Image from "next/image";
 import NavLinks from "@/components/NavLinks";
 import HeaderText from "@/components/HeaderText";
 import FooterText from "@/components/FooterText";
+import PixelTechIcons from "@/components/PixelTechIcons";
+
+const pressStart = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-pixel",
+  display: "swap",
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "it depends",
@@ -21,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${pressStart.variable} ${vt323.variable}`}>
       <body>
         <BlogProvider>
           <div className="min-h-screen flex flex-col">
@@ -40,8 +56,11 @@ export default function RootLayout({
                       <h1
                         className="text-2xl font-bold leading-tight"
                         style={{
-                          color: "var(--foreground)",
-                          fontFamily: "Georgia, serif",
+                          color: "var(--retro-site-title)",
+                          fontFamily: "var(--font-pixel), monospace",
+                          fontSize: "16px",
+                          lineHeight: "1.6",
+                          textShadow: "2px 2px 0 #880033",
                         }}
                       >
                         it depends
@@ -51,7 +70,10 @@ export default function RootLayout({
                     <NavLinks />
                   </div>
                 </div>
-                <hr className="mt-6" />
+                <div className="mt-4">
+                  <PixelTechIcons size={24} showLabels={false} />
+                </div>
+                <hr className="mt-4" />
               </header>
 
               <main>{children}</main>

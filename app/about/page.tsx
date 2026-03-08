@@ -3,6 +3,7 @@
 import { useBlog } from "@/context/BlogContext";
 import { t } from "@/lib/translations";
 import { BackLink } from "@/components/PostNav";
+import PixelTechIcons from "@/components/PixelTechIcons";
 
 export default function About() {
   const { language } = useBlog();
@@ -27,11 +28,9 @@ export default function About() {
         <p>{tr.focus}</p>
 
         <h2>{tr.techTitle}</h2>
-        <ul>
-          {tr.techItems.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <div className="mt-4 mb-6">
+          <PixelTechIcons size={48} showLabels={true} />
+        </div>
 
         <h2>{tr.contactTitle}</h2>
         <ul>

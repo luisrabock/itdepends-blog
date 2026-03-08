@@ -34,10 +34,7 @@ export default function PostContent({ posts }: Props) {
         <span className="retro-date block mb-2">
           {formatDate(post.date, tr.dateLocale)}
         </span>
-        <h1
-          className="text-2xl sm:text-3xl font-bold leading-tight"
-          style={{ fontFamily: "Georgia, serif" }}
-        >
+        <h1 className="text-2xl sm:text-3xl font-bold leading-tight">
           {post.title}
         </h1>
         {post.description && (

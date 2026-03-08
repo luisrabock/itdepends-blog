@@ -65,7 +65,7 @@ async function parseContent(filePath: string): Promise<string> {
 }
 
 // Returns the post for a given language, falls back to pt-BR
-export async function getPostBySlug(
+async function getPostBySlug(
   slug: string,
   lang: Language = "pt-BR"
 ): Promise<Post | null> {
